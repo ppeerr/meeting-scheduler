@@ -1,0 +1,16 @@
+GET http://localhost:9090/api/rest/persons/all
+
+###
+
+GET http://localhost:9090/api/rest/persons/allll
+
+###
+
+GET http://localhost:9090/api/rest/persons/8
+
+###
+
+GET http://localhost:9090/meeting-scheduler-0.0.5-SNAPSHOT/api/rest/persons/allllll
+
+###
+
