@@ -1,16 +1,16 @@
 package com.per.project.facade;
 
 import com.per.project.facade.dto.*;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-class TestToMapMapperTest {
+public class TestToMapMapperTest {
 
     private TestToMapMapper testToMapMapper = new TestToMapMapper();
 
     @Test
-    void mapTestToMap() {
+    public void mapTestToMap() {
         ContractDto contract = new ContractDto();
         contract.setTitle("42th title");
 
@@ -40,7 +40,7 @@ class TestToMapMapperTest {
     }
 
     @Test
-    void mapMapToTest() {
+    public void mapMapToTest() {
         OrganizationDto organization = new OrganizationDto();
         organization.setOrgName("OrgName");
 

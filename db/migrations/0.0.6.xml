@@ -1,0 +1,71 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+
+    <changeSet id="2017-12-21__01" author="per">
+        <addColumn tableName="persons">
+            <column name="work_start_time" type="time" defaultValueComputed="TO_TIMESTAMP('08:00:00', 'HH24:MI:SS')::TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="work_end_time" type="time" defaultValueComputed="TO_TIMESTAMP('08:00:00', 'HH24:MI:SS')::TIME">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="2017-12-21__02" author="per">
+        <createTable tableName="events">
+            <column name="event_uid" type="char(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2017-12-21__03" author="per">
+        <createTable tableName="single_schedules">
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="event_uid" type="char(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2017-12-21__04" author="per">
+        <createTable tableName="repeating_schedules">
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="event_uid" type="char(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_repeating_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_repeating_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repeating_mask" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
